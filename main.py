@@ -23,12 +23,16 @@ if check_connection(ip_address, port_number):
     # Bağlantıyı aç
     client.connect()
 
+    print("Bağlantı açıldı")
+
     try:
         # Veri okuma işlemi
         # Örneğin, enerji analizöründe 1. register'dan başlayarak 10 register okuyalım
         starting_register = 40001
-        num_registers_to_read = 40011
-        result = client.read_holding_registers(starting_register, num_registers_to_read, unit=1)
+        num_registers_to_read = 40010
+        deneme=client.read_input_registers(1,10)
+        print(deneme)
+        result = client.read_holding_registers(starting_register, num_registers_to_read, unit_id=1)
 
         if result.isError():
             print("Modbus Hatası:", result)

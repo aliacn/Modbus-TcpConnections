@@ -3,7 +3,7 @@ from siemens.pac import PACx200
 
 times = []
 
-p = PACx200('10.108.229.186')
+p = PACx200('10.108.229.186','10.108.229.187')
 while True:
     try:
         p.read()
